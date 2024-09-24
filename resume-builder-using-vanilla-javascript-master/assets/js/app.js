@@ -621,23 +621,22 @@ summary_btn.addEventListener("click", async (event) => {
 
 ////////////////////////////////////////////
 
-const url = 'https://text-summariser2.p.rapidapi.com/summariser_ai.php';
-const options = {
-	method: 'POST',
-	headers: {
-		'x-rapidapi-key': 'ce8551bf5cmsh2edba2dd9ce2ad2p13e78cjsn385f3962ba8e',
-		'x-rapidapi-host': 'text-summariser2.p.rapidapi.com',
-		'Content-Type': 'application/json'
-	},
-	body: {
-		job_description: 'Job description'
-	}
-};
+const data = JSON.stringify({
+	job_description: 'I am a data scientist'
+});
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
+
+xhr.open('POST', 'https://text-summariser2.p.rapidapi.com/summariser_ai.php');
+xhr.setRequestHeader('x-rapidapi-key', 'ce8551bf5cmsh2edba2dd9ce2ad2p13e78cjsn385f3962ba8e');
+xhr.setRequestHeader('x-rapidapi-host', 'text-summariser2.p.rapidapi.com');
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.send(data);
