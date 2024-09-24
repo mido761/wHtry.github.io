@@ -580,7 +580,6 @@ let summary_btn = document.getElementById("summary-btn")
 summary_btn.addEventListener("click", async (event) => {
   event.preventDefault();
   user_data = getUserInputs();
-  if (designation Element.value.length >== 5) {
   let projects = user_data["projects"][0]["proj_title"];
   let achievments = user_data["achievements"][0]["achieve_title"];
   let skills = user_data["skills"][0]["skill"];
@@ -618,7 +617,7 @@ summary_btn.addEventListener("click", async (event) => {
   console.log(splitted_response[1]);
   output = result[0]["generated_text"];
   summaryElem.value = JSON.stringify(splitted_response[1], null, 2);
-  } else{alert("you have to enter your job title at least to make a summary")}
+  
 });
 
 
