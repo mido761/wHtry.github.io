@@ -619,24 +619,4 @@ summary_btn.addEventListener("click", async (event) => {
   summaryElem.value = JSON.stringify(splitted_response[1], null, 2);
 });
 
-////////////////////////////////////////////
 
-const data = JSON.stringify({
-	job_description: 'I am a data scientist'
-});
-
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener('readystatechange', function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
-
-xhr.open('POST', 'https://text-summariser2.p.rapidapi.com/summariser_ai.php');
-xhr.setRequestHeader('x-rapidapi-key', 'ce8551bf5cmsh2edba2dd9ce2ad2p13e78cjsn385f3962ba8e');
-xhr.setRequestHeader('x-rapidapi-host', 'text-summariser2.p.rapidapi.com');
-xhr.setRequestHeader('Content-Type', 'application/json');
-
-xhr.send(data);
