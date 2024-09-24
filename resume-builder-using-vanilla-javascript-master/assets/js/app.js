@@ -618,7 +618,7 @@ summary_btn.addEventListener("click", async (event) => {
   console.log(splitted_response[1]);
   output = result[0]["generated_text"];
   summaryElem.value = JSON.stringify(splitted_response[1], null, 2);
+  } else{alert("you have to enter your job title at least to make a summary")}
 });
-} else{alert("you have to enter your job title at least to make a summary")} 
 
 
